@@ -22,6 +22,12 @@ class Steps
       @steps_all+=40
     elsif (@a[0]==@a[1] &&(@a[2]==@a[3] && @a[2]==@a[4])) || ((@a[0]==@a[1] && @a[0]==@a[2]) && @a[3]==@a[4])
       @steps_all+=25
+    elsif @a[0]==@a[1] && @a[0]==@a[2]
+      @steps_all+=@a[0]+@a[1]+@a[2]
+    elsif @a[1]==@a[2] && @a[1]==@a[3]
+      @steps_all+=@a[1]+@a[2]+@a[3]
+    elsif @a[2]==@a[3] && @a[2]==@a[4]
+      @steps_all+=@a[2]+@a[3]+@a[4]
     end
     @a=[]
     @player.add_points(@steps_all)
