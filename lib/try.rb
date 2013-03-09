@@ -1,6 +1,10 @@
 class Game
+  attr_accessor :player_choice
+  attr_reader :chanc
   def initialize(players)
     @players=players
+    @player_choice=nil
+    @chanc=0
   end
   def winner
     b=[]
@@ -12,5 +16,8 @@ class Game
       winner = @players.max_by {|player| player.points}
       puts "Congratulations, #{winner.name}, you win!!!"
     end
+  end
+  def chance
+     @chanc+=1
   end
 end

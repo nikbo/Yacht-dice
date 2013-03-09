@@ -2,6 +2,7 @@ require './lib/try'
 require './lib/player'
 require './lib/step'
 require './lib/die'
+require './lib/chance'
 players = [Player.new("Gulec 1"), Player.new("Gulec 2")]
 die=Die.new
 game=Game.new(players)
@@ -21,4 +22,5 @@ until die.las_step==13
   end
   die.last_step
 end
+Chance.new(game,players,die).chance
 game.winner
