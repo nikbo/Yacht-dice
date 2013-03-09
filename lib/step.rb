@@ -6,6 +6,8 @@ class Steps
     @steps_sum=0
     @a=[]
     @steps_all=0
+    @mas=[]
+    @ch=0
   end
   def step(stp)
     @stp=stp
@@ -13,7 +15,17 @@ class Steps
     @a<<stp
   end
   def check
+    @mas.each do |el|
+    if el=@a.sort!
+      @ch+=1
+    end
+    end
+    if @ch>0
+    @a=[]
+    else
     @a.sort!
+    @mas<<@a
+
     if @a[0]==@a[4]
       @steps_all+=50
     elsif @a[0]==@a[3] || @a[1]==@a[4]
@@ -34,5 +46,6 @@ class Steps
     @a=[]
     @player.add_points(@steps_all)
     @steps_all=0
+    end
   end
 end
